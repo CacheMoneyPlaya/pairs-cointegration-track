@@ -26,5 +26,8 @@ def get_ticker_price(bb, ticker: str):
     return float(bb.fetchTicker(ticker)['last'])
 
 
-def get_balance(bb):
+def get_free_balance(bb):
     return bb.fetch_free_balance()['USDT']
+
+def get_balance(bb):
+    return bb.fetch_balance(params = {"currency": "usdt"})

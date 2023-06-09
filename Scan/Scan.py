@@ -18,11 +18,12 @@ def get_position_returns_and_determine_close(x, bb):
         x.t1_close_side = 'sell'
         x.t2_close_side = 'buy'
 
-
+    print(float(ac.get_balance(bb)))
     if is_below_close_threshold(bb, net_returns, float(ac.get_balance(bb))):
-        bb.create_order(x.t1, amount=hedge1['size'], type='Market', side=x.t1_close_side, params={'reduce_only': True})
-        bb.create_order(x.t2, amount=hedge2['size'], type='Market', side=x.t2_close_side, params={'reduce_only': True})
-        remove_row_from_csv_tracking(x)
+        pass
+        # bb.create_order(x.t1, amount=hedge1['size'], type='Market', side=x.t1_close_side, params={'reduce_only': True})
+        # bb.create_order(x.t2, amount=hedge2['size'], type='Market', side=x.t2_close_side, params={'reduce_only': True})
+        # remove_row_from_csv_tracking(x)
         # Remove the rows from csv
 
 

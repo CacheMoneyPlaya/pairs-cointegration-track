@@ -35,7 +35,7 @@ def entry():
     else:
         side = ['buy', 'sell']
 
-    pair_order_value = ac.get_balance(exchange)*0.1
+    pair_order_value = ac.get_free_balance(exchange)*0.1
 
     ac.set_leverage(exchange, 10, tickers[0])
     ac.set_leverage(exchange, 10, tickers[1])
@@ -59,9 +59,7 @@ if __name__ == '__main__':
     CONFIG = vars(args)
 
     if CONFIG['scan']:
-        while True:
-            scan()
-            time.sleep(5)
+        scan()
 
     else:
         entry()
