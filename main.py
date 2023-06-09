@@ -34,7 +34,7 @@ def entry():
     else:
         side = ['buy', 'sell']
 
-    pair_order_value = ac.get_balance(exchange)*0.2
+    pair_order_value = ac.get_balance(exchange)*0.1
 
     ac.set_leverage(exchange, 10, tickers[0])
     ac.set_leverage(exchange, 10, tickers[1])

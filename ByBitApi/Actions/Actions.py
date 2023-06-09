@@ -27,5 +27,4 @@ def get_ticker_price(bb, ticker: str):
 
 
 def get_balance(bb):
-    return 50
     return bb.fetch_free_balance()['USDT']
