@@ -28,7 +28,6 @@ def get_position_returns_and_determine_close(x, bb):
 
 
 def is_below_close_threshold(bb, net_pair_returns: float, account_value_at_t: float):
-    print(account_value_at_t)
     # Get total account value change from pair
     net_pct_change = ((account_value_at_t - (account_value_at_t + net_pair_returns)) / account_value_at_t) * 100
 

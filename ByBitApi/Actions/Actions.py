@@ -30,4 +30,5 @@ def get_free_balance(bb):
     return bb.fetch_free_balance()['USDT']
 
 def get_balance(bb):
+    print( bb.fetch_balance(params = {"currency": "usdt"}))
     return bb.fetch_balance(params = {"currency": "usdt"})
