@@ -18,7 +18,6 @@ def get_position_returns_and_determine_close(x, bb):
         x.t1_close_side = 'sell'
         x.t2_close_side = 'buy'
 
-    print(float(ac.get_balance(bb)))
     if is_below_close_threshold(bb, net_returns, float(ac.get_balance(bb))):
         pass
         # bb.create_order(x.t1, amount=hedge1['size'], type='Market', side=x.t1_close_side, params={'reduce_only': True})
