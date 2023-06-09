@@ -1,5 +1,5 @@
 import pandas as pd
-
+import ByBitApi.Actions.Actions as ac
 
 def scan_pairs(bb):
     df = pd.read_csv('active_pairs.csv', usecols= ['t1','t2','account_value_at_t', 'side'])
@@ -19,7 +19,7 @@ def get_position_returns_and_determine_close(x, bb):
         x.t2_close_side = 'buy'
 
 
-    if is_below_close_threshold(bb, net_returns, x.account_value_at_t):
+    if is_below_close_threshold(bb, net_returns, float(ac.get_balance(bb))):
         bb.create_order(x.t1, amount=hedge1['size'], type='Market', side=x.t1_close_side, params={'reduce_only': True})
         bb.create_order(x.t2, amount=hedge2['size'], type='Market', side=x.t2_close_side, params={'reduce_only': True})
         remove_row_from_csv_tracking(x)
@@ -27,6 +27,7 @@ def get_position_returns_and_determine_close(x, bb):
 
 
 def is_below_close_threshold(bb, net_pair_returns: float, account_value_at_t: float):
+    print(account_value_at_t)
     # Get total account value change from pair
     net_pct_change = ((account_value_at_t - (account_value_at_t + net_pair_returns)) / account_value_at_t) * 100
 
