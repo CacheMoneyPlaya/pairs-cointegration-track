@@ -30,7 +30,7 @@ def is_below_close_threshold(bb, net_pair_returns: float, account_value_at_t: fl
     # Get total account value change from pair
     net_pct_change = ((account_value_at_t - (account_value_at_t - net_pair_returns)) / account_value_at_t) * 100
 
-    return net_pct_change < -0.01
+    return net_pct_change <= -1.5
 
 
 def remove_row_from_csv_tracking(x):
