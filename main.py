@@ -5,6 +5,7 @@ import ByBitApi.Actions.Actions as ac
 from dotenv import load_dotenv, dotenv_values
 import pandas as pd
 import Scan.Scan as s
+import time
 
 CONFIG = None
 load_dotenv()
@@ -58,6 +59,9 @@ if __name__ == '__main__':
     CONFIG = vars(args)
 
     if CONFIG['scan']:
-        scan()
+        while True:
+            scan()
+            time.sleep(5)
+
     else:
         entry()
