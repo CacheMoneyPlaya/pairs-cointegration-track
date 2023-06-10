@@ -31,5 +31,4 @@ def get_free_balance(bb):
 
 def get_balance(bb):
     balances = bb.fetch_balance(params = {"currency": "usdt"})['info']['result']['list']
-    
-    return float([d['walletBalance'] for d in balances if d['coin'] == 'USDT'][0])
+    return float([d['equity'] for d in balances if d['coin'] == 'USDT'][0])
